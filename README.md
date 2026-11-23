@@ -1,27 +1,27 @@
 # Automated Plant Watering System
 
-An early-stage plant watering project built around an ESP32 microcontroller, capacitive moisture sensing, pump control, and a small status display.
+An early-stage plant watering project built around an esp32 microcontroller, moisture sensing, pump control, and a small status display[cite: 9].
 
 ## Current Hardware Parts
-- ESP32 board
-- Capacitive Soil Moisture Sensor v2.0
-- Water pump and tubing
-- Relay module
-- Small display screen
-- Breadboard and jumper wires
+- ESP32 board[cite: 9]
+- Soil moisture sensor[cite: 9]
+- Water pump and tubing[cite: 9]
+- Relay module[cite: 9]
+- Small display screen[cite: 9]
+- Breadboard and jumper wires[cite: 9]
 
 ## Current Status
-Flashed MicroPython (`v1.29.0`) onto the ESP32 and verified baseline analog sensor behavior before wiring in the relay, water pump, and display, writing control logic, and building an enclosure.
+Gathering and testing the core components before wiring everything together, writing the control logic, and building an enclosure[cite: 9].
 
 ## Initial Sensor Testing
-Using a 3-pin jumper connection (`3V3`, `GND`, and `AOUT` wired to `GPIO 33` with 12-bit ADC and `ATTN_11DB` attenuation), the sensor was tested in dry air and then exposed to water while streaming readings over Thonny's MicroPython Shell.
+Tested the Capacitive Soil Moisture Sensor v2.0 powered from the ESP32 (`3V3` and `GND`) with `AOUT` wired to `GPIO 33` and read in Thonny using MicroPython (`12-bit` ADC with `ATTN_11DB`)[cite: 7, 8].
 
-### Test Bench Wiring Setup
-![ESP32 and Capacitive Soil Moisture Sensor v2.0 Wiring Setup](initial_wiring.png)
+### Wiring Setup
+![ESP32 and Capacitive Soil Moisture Sensor v2.0 Wiring Setup](initial_wiring.JPG)
 
-The sensor's `3V3` and `GND` pins are powered from the ESP32 rail, with the analog signal (`AOUT`) routed to `GPIO 33` (`ADC1`) to verify power and signal continuity without a multimeter.
+The sensor is connected to the ESP32 board over USB with `3V3`, `GND`, and `AOUT` (`GPIO 33`) wired via jumper cables to verify power and analog signal response[cite: 7, 8].
 
-### Dry vs. Wet Test Results
-![Thonny MicroPython Serial Output Comparing Dry and Wet Sensor Readings](initial_data.JPG)
+### Initial Test Results
+![Thonny Shell Output Showing Dry vs. Wet Sensor Readings](initial_data.png)
 
-In dry air, the sensor outputs a steady baseline around **2.21 V – 2.30 V** (raw ADC ~2747–2855). When exposed to water, the analog voltage drops substantially (reaching as low as **0.96 V** / raw ADC 1188 in the test log), confirming the capacitive circuit responds cleanly and providing dry/wet endpoints for moisture percentage calibration.
+In a dry environment, the sensor reads steady around **2.2–2.3 V** (`ADC` roughly `2747–2855`). When exposed to water, the voltage drops sharply (down to **0.96 V** / `ADC` `1188` in the capture), confirming the sensor responds to moisture[cite: 8].
