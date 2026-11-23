@@ -25,3 +25,8 @@ The sensor is connected to the ESP32 board over USB with `3V3`, `GND`, and `AOUT
 ![Thonny Shell Output Showing Dry vs. Wet Sensor Readings](initial_data.png)
 
 In a dry environment, the sensor reads steady around **2.2–2.3 V** (`ADC` roughly `2747–2855`). When exposed to water, the voltage drops sharply (down to **0.96 V** / `ADC` `1188` in the capture), confirming the sensor responds to moisture.
+
+## Next Steps
+- Design a 3D-printable chassis to house the wiring, water tank, and plant cleanly in one integrated structure.
+- Wire in the relay module, water pump, tubing, and small status display once the layout and clearances are mapped out.
+- Write and calibrate the automated watering control logic based on dry and wet moisture readings.
